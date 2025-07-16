@@ -16,9 +16,9 @@
 # Example
 # "Hello"
 
-# for character in "Hello":
-#     print(character)  # run on each iteration / loop
-#     print("Good")
+for character in "Hello":
+    print(character)  # run on each iteration / loop
+    print("Good")
 
 
 # While
@@ -30,11 +30,11 @@
 
 # Example
 # None -- empty or no value
-# num_of_iteration = 0
+num_of_iteration = 0
 
-# while num_of_iteration < 6:
-#     num_of_iteration = num_of_iteration + 1
-#     print(num_of_iteration)
+while num_of_iteration < 6:
+    num_of_iteration = num_of_iteration + 1
+    print(num_of_iteration)
 
 
 # Take Notes of these keywords

@@ -9,18 +9,22 @@ import math
 # if user is high than the secret number then "your guess is too high."
 
 
+print("\n#####################################\n")
+
 print("\nWelcome to the Number Guessing Game!")
 
 play_again = "yes"
 
 while play_again.lower() == "yes":
 
+    print("\n#####################################\n")
+
     print("\nChoose a difficulty level:")
     print(" '1' for Easy ( 1 - 50 )")
     print(" '2' for Medium ( 1 - 100 )")
     print(" '3' for Hard ( 1 - 1000 )")
 
-    difficulty = input("Enter 1, 2, or 3: ")
+    difficulty = input("\nEnter 1, 2, or 3: ")
 
     if difficulty == "1":
         max_range = 50
@@ -29,25 +33,35 @@ while play_again.lower() == "yes":
     elif difficulty == "3":
         max_range = 1000
     else:
-        print("Invalid choice. Please enter either 1, 2, or 3")
+        print("\nInvalid choice. Please enter either 1, 2, or 3")
         continue
 
     max_attempts = math.ceil(math.log2(max_range))
 
-    print(f"\nThinking of a number between 1 and {max_range}.")
-    print(f"You have {max_attempts} attempts to guess it.")
+    if max_range == 50:
+        max_attempts = max_attempts + 9
+        print(f"\nI'm thinking of a number between 1 and {max_range}.")
+        print(f"\nYou have {max_attempts} attempts to guess it.")
+
+    elif max_range == 100:
+        max_attempts = max_attempts + 3
+        print(f"\nI'm thinking of a number between 1 and {max_range}.")
+        print(f"\nYou have {max_attempts} attempts to guess it.")
+
+    else:
+        print(f"\nI'm thinking of a number between 1 and {max_range}.")
+        print(f"\nYou have {max_attempts} attempts to guess it.")
 
     secret_number = random.randint(1, max_range)
-    # print("secret number:", secret_number)
 
     attempts = 0
     while attempts < max_attempts:
         user_input = input(
-            f"Attempts {attempts + 1} of {max_attempts}. Enter your guess: "
+            f"\nAttempts {attempts + 1} of {max_attempts}. Enter your guess: "
         )
 
         if not user_input.isdigit():
-            print("Invalid input. Please enter a number.")
+            print("\nInvalid input. Please enter a number.")
             continue
 
         guess = int(user_input)
@@ -56,17 +70,22 @@ while play_again.lower() == "yes":
         attempts = attempts + 1
 
         if guess < secret_number:
-            print("Too low")
+            print("\nYour guess is too low")
 
         elif guess > secret_number:
-            print("Too high")
+            print("\nYour guess is too high")
 
         elif guess == secret_number:
-            print(f"🎆 Correct! You guessed it in {attempts} attempts.")
+            print(
+                f"\n🎆 Correct! You guessed it in {attempts} attempts.\n🥳🎇🎇🎇🎇🎇🎇🎇🎆🎆🎆🎆🎇🥳"
+            )
             break
 
-    print(f"😟 Game over! The number was {secret_number}")
+    else:
+        print(f"\n😟 Game over! The number was {secret_number}")
 
-    play_again = input("Do you want to play again? (yes / no): ")
+    play_again = input("\nDo you want to play again? (yes / no): ")
 
-print("Thank you for playing! Goodbye.")
+print("\nThank you for playing! Goodbye.")
+
+print("\n#####################################\n")

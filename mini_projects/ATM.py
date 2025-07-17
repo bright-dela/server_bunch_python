@@ -31,6 +31,7 @@ if user_action == "1":
 
         if username in users:
             print("\nUsername already exists.")
+            break
 
         else:
             pin = input("\nCreate your 4-digit PIN: ")

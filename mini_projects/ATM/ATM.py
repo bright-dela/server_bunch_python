@@ -31,7 +31,6 @@ if user_action == "1":
 
         if username in users:
             print("\nUsername already exists.")
-            break
 
         else:
             pin = input("\nCreate your 4-digit PIN: ")
@@ -64,8 +63,19 @@ elif user_action == "2":
         username = input("\nUsername: ").strip().lower()
 
         if username not in users:
-            print("\nUser not found!")
-            continue
+
+            tries = 3
+
+            while tries > 0:
+
+                tries -= 1
+
+                if not tries == 0:
+                    print("\nUser not found!")
+
+            else:
+                print("\nToo many failed attempts.")
+                exit()
 
         else:
             attempts = 3

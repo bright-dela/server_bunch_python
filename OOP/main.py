@@ -39,7 +39,7 @@ from polymorphism import Animal,Cat,Dog
 
 bruno = Dog("Bruno")
 maxy = Cat("Maxy")
-carnivore = Animal("Lion")
+# carnivore = Animal("Lion") #Cannot instantiate an abstract class.
 
 bruno.make_sound()
 maxy.make_sound()
